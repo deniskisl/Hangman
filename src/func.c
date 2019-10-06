@@ -84,5 +84,7 @@ void hangman(int i)
         printf("\n\t||   / %c", '\\');
         printf("\n\t||      ");
         break;
+    default:
+        printf("Ошибка. Количество неверно введёных букв не може быть больше 6");
     }
 }
