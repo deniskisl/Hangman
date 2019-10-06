@@ -1,8 +1,8 @@
+#include "func.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "func.h"
 
 int main()
 {
@@ -10,10 +10,10 @@ int main()
     int j = 0;
     int n = 0;
     char list[RSIZ][LSIZ]; // Список слов из словаря
-    char *word;
+    char* word;
     int len; // Длина слова
-    char vis_let[20] ={' '};
-    int trigger = 0; 
+    char vis_let[20] = {' '};
+    int trigger = 0;
     char guess;
     int right = 0; // Количсетво верно введённых слов
     int mistakes = 0; // Количество допущенных ошибок
@@ -24,14 +24,12 @@ int main()
     printf("1. Играть\n");
     printf("2. Выход \n");
     scanf("%d", &choice);
-    if(choice == 2)
-    {
+    if (choice == 2) {
         exit(1);
     }
-    while (choice < 1 || choice > 2)
-    {
+    while (choice < 1 || choice > 2) {
         printf("Неверный ввод попробуйте снова: ");
-        scanf("%d", &choice);                 
+        scanf("%d", &choice);
     }
 
     printf("Загадываемое слово будет длиной... \n");
@@ -40,13 +38,11 @@ int main()
     printf("3) 10-12 букв \n");
 
     scanf("%d", &choice);
-    while (choice < 1 || choice > 3)
-    {
+    while (choice < 1 || choice > 3) {
         printf("Неверный ввод попробуйте снова: ");
-        scanf("%d", &choice);                 
+        scanf("%d", &choice);
     }
-    switch (choice)
-    {
+    switch (choice) {
     case 1:
         read_dictionary("dictionaries/dictionary1.txt", list, &n);
         break;
@@ -61,22 +57,19 @@ int main()
     int r = getrand(0, n);
     n = 0;
     word = list[r];
-    //printf("%s\n", word);
+    // printf("%s\n", word);
     len = strlen(word);
-    //printf("%d\n", len);
+    // printf("%d\n", len);
 
-    for (i = 0; i < len; i++)
-    {
+    for (i = 0; i < len; i++) {
         vis_let[i] = '.';
     }
     vis_let[len] = '\0';
 
     printf("%s\n", vis_let);
 
-    for (j = 0; j < 26; j++)
-    {
-        if (right == len)
-        {
+    for (j = 0; j < 26; j++) {
+        if (right == len) {
             printf("\n\nЭто было слово: %s\n", word);
             printf("\nПобеда!\n");
             break;
@@ -84,8 +77,7 @@ int main()
 
         hangman(mistakes);
 
-        if (mistakes == 6)
-        {
+        if (mistakes == 6) {
             printf("\n\nnЭто было слово: %s\n", word);
             printf("\n\nВы проиграли.\n");
             break;
@@ -97,18 +89,15 @@ int main()
         printf("\n\nВведите букву:");
         scanf(" %c", &guess);
 
-        for (i = 0; i < len; i++)
-        {
-            if (word[i] == guess)
-            {
-                vis_let[i] = guess; 
+        for (i = 0; i < len; i++) {
+            if (word[i] == guess) {
+                vis_let[i] = guess;
                 trigger++;
                 right++;
             }
         }
 
-        if (trigger == 0)
-        {
+        if (trigger == 0) {
             mistakes++;
             incor_let[n++] = guess;
         }
@@ -117,4 +106,3 @@ int main()
     }
     return 0;
 }
-

@@ -1,21 +1,19 @@
+#include "func.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "func.h"
 
-void read_dictionary(char *filename, char words[RSIZ][LSIZ], int *n)
+void read_dictionary(char* filename, char words[RSIZ][LSIZ], int* n)
 {
     int count = 0;
-    FILE *fptr = NULL;
+    FILE* fptr = NULL;
     fptr = fopen(filename, "r");
-    if (fptr == NULL)
-    {
+    if (fptr == NULL) {
         printf("Не получилось открыть файл\n");
         exit(1);
     }
 
     fscanf(fptr, "%d\n", &count);
-    for (int i = 0; i < count; i++)
-    {
+    for (int i = 0; i < count; i++) {
         fscanf(fptr, "%s\n", words[i]);
     }
     *n = count;
@@ -26,8 +24,7 @@ void read_dictionary(char *filename, char words[RSIZ][LSIZ], int *n)
 void hangman(int i)
 {
     system("clear");
-    switch (i)
-    {
+    switch (i) {
     case 0:
         printf("\n\t||===== ");
         printf("\n\t||    | ");
@@ -85,7 +82,8 @@ void hangman(int i)
         printf("\n\t||      ");
         break;
     default:
-        printf("Ошибка. Количество неверно введёных букв не може быть больше 6");
+        printf("Ошибка. Количество неверно введёных букв не може быть больше "
+               "6");
     }
 }
 
