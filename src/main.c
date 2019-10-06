@@ -15,7 +15,7 @@ int main()
     int trigger = 0; 
     char guess;
     int right = 0; // Количсетво верно введённых слов
-    int strikes = 0; // Количество допущенных ошибок
+    int mistakes = 0; // Количество допущенных ошибок
     char incor_let[30] = {' '};
     int choice;
 
@@ -81,9 +81,9 @@ int main()
             break;
         }
 
-        hangman(strikes);
+        hangman(mistakes);
 
-        if (strikes == 6)
+        if (mistakes == 6)
         {
             printf("\n\nnЭто было слово: %s\n", word);
             printf("\n\nВы проиграли.\n");
@@ -108,7 +108,7 @@ int main()
 
         if (trigger == 0)
         {
-            strikes++;
+            mistakes++;
             incor_let[n++] = guess;
         }
 
