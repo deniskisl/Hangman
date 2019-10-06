@@ -12,19 +12,21 @@ int main()
     char *word;
     int len; // Длина слова
     char vis_let[20] ={' '};
-    int mistakes = 0; // Количество неверно введённых за ход букв
+    int trigger = 0; 
     char guess;
     int right = 0; // Количсетво верно введённых слов
     int strikes = 0; // Количество допущенных ошибок
+    char incor_let[30] = {' '};
 
     srand(time(0));
     read_dictionary("dictionary1.txt", list, &n);
     int r = getrand(0, n);
+    n = 0;
     word = list[r];
     //printf("%s\n", word);
     len = strlen(word);
     //printf("%d\n", len);
-    
+
     for (i = 0; i < len; i++)
     {
         vis_let[i] = '.';
@@ -52,6 +54,7 @@ int main()
         }
 
         printf("\n\n\n\n%s", vis_let);
+        printf("\n Неверный ввод %s", incor_let);
 
         printf("\n\nВведите букву:");
         scanf(" %c", &guess);
@@ -61,18 +64,18 @@ int main()
             if (word[i] == guess)
             {
                 vis_let[i] = guess; 
-                mistakes++;
+                trigger++;
                 right++;
-                printf("\n\n\n\n%d", right);
             }
         }
 
-        if (mistakes == 0)
+        if (trigger == 0)
         {
             strikes++;
+            incor_let[n++] = guess;
         }
 
-        mistakes = 0;
+        trigger = 0;
     }
     return 0;
 }
