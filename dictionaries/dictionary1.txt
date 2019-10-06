@@ -1,0 +1,13 @@
+12
+bag
+gun
+bee
+fox
+sea
+bear
+book
+album
+blame
+glade
+logic
+level
