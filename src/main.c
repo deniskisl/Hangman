@@ -17,9 +17,42 @@ int main()
     int right = 0; // Количсетво верно введённых слов
     int strikes = 0; // Количество допущенных ошибок
     char incor_let[30] = {' '};
+    int choice;
 
     srand(time(0));
-    read_dictionary("dictionary1.txt", list, &n);
+    printf("1. Играть\n");
+    printf("2. Выход \n");
+    scanf("%d", &choice);
+    if(choice == 2)
+    {
+        exit(1);
+    }
+
+    printf("Загадываемое слово будет длиной... \n");
+    printf("1) 3-5 букв \n");
+    printf("2) 6-9 букв \n");
+    printf("3) 10-12 букв \n");
+
+    scanf("%d", &choice);
+    while (choice < 1 || choice > 3)
+    {
+        printf("Incorrect input. Try again: "); // выводим сообщение об ошибке
+        scanf("%d", &choice);                 // считываем строку повторно
+    }
+
+    switch (choice)
+    {
+    case 1:
+        read_dictionary("dictionary1.txt", list, &n);
+        break;
+    case 2:
+        read_dictionary("dictionary2.txt", list, &n);
+        break;
+    case 3:
+        read_dictionary("dictionary3.txt", list, &n);
+        break;
+    }
+
     int r = getrand(0, n);
     n = 0;
     word = list[r];
@@ -54,7 +87,7 @@ int main()
         }
 
         printf("\n\n\n\n%s", vis_let);
-        printf("\n Неверный ввод %s", incor_let);
+        printf("\n Неверные буквы: %s", incor_let);
 
         printf("\n\nВведите букву:");
         scanf(" %c", &guess);
