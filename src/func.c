@@ -26,6 +26,7 @@ void read_dictionary(char *filename, char words[RSIZ][LSIZ], int *n)
 
 void hangman(int i)
 {
+    system("clear");
     switch (i)
     {
     case 0:
@@ -87,4 +88,9 @@ void hangman(int i)
     default:
         printf("Ошибка. Количество неверно введёных букв не може быть больше 6");
     }
+}
+
+int getrand(int min, int max)
+{
+    return (double)rand() / (RAND_MAX + 1.0) * (max - min) + min;
 }
