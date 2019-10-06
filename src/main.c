@@ -17,7 +17,7 @@ int main()
     int right = 0; // Количсетво верно введённых слов
     int mistakes = 0; // Количество допущенных ошибок
     char incor_let[30] = {' '};
-    int choice;
+    int choice = 0;
 
     srand(time(0));
     printf("1. Играть\n");
@@ -27,7 +27,7 @@ int main()
     {
         exit(1);
     }
-    while (choice != 1 || choice != 2)
+    while (choice < 1 || choice > 2)
     {
         printf("Неверный ввод попробуйте снова: ");
         scanf("%d", &choice);                 

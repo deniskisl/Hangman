@@ -26,6 +26,7 @@ void read_dictionary(char *filename, char words[RSIZ][LSIZ], int *n)
 
 void hangman(int i)
 {
+    system("clear");
     switch (i)
     {
     case 0:
