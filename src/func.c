@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "input.h"
+#include "func.h"
 
 void read_dictionary(char *filename, char words[RSIZ][LSIZ], int *n)
 {
