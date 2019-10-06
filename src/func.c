@@ -6,7 +6,6 @@ void read_dictionary(char *filename, char words[RSIZ][LSIZ], int *n)
 {
     int count = 0;
     FILE *fptr = NULL;
-    char word[LSIZ];
     fptr = fopen(filename, "r");
     if (fptr == NULL)
     {

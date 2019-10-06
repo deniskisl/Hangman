@@ -47,13 +47,13 @@ int main()
     switch (choice)
     {
     case 1:
-        read_dictionary("dictionary1.txt", list, &n);
+        read_dictionary("dictionaries/dictionary1.txt", list, &n);
         break;
     case 2:
-        read_dictionary("dictionary2.txt", list, &n);
+        read_dictionary("dictionaries/dictionary2.txt", list, &n);
         break;
     case 3:
-        read_dictionary("dictionary3.txt", list, &n);
+        read_dictionary("dictionaries/dictionary3.txt", list, &n);
         break;
     }
 
