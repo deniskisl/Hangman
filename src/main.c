@@ -7,13 +7,16 @@ int main()
 {
     int i = 0;
     int n = 0;
-    char words[RSIZ][LSIZ];
+    char list[RSIZ][LSIZ];
     char *word;
+    int len;
 
     srand(time(0));
-    read_dictionary("dictionary1.txt", words, &n);
+    read_dictionary("dictionary1.txt", list, &n);
     int r = getrand(0, n);
-    word = words[r];
+    word = list[r];
     printf("%s\n", word);
+    len = strlen(word);
+    printf("%d\n", len);
     return 0;
 }
