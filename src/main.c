@@ -27,6 +27,11 @@ int main()
     {
         exit(1);
     }
+    while (choice != 1 || choice != 2)
+    {
+        printf("Неверный ввод попробуйте снова: ");
+        scanf("%d", &choice);                 
+    }
 
     printf("Загадываемое слово будет длиной... \n");
     printf("1) 3-5 букв \n");
@@ -36,10 +41,9 @@ int main()
     scanf("%d", &choice);
     while (choice < 1 || choice > 3)
     {
-        printf("Incorrect input. Try again: "); // выводим сообщение об ошибке
-        scanf("%d", &choice);                 // считываем строку повторно
+        printf("Неверный ввод попробуйте снова: ");
+        scanf("%d", &choice);                 
     }
-
     switch (choice)
     {
     case 1:
