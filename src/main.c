@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "func.h"
+#include <time.h>
 
 int main()
 {
